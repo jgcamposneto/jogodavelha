@@ -26,14 +26,12 @@ public abstract class Computador implements Jogavel {
 			System.out.println("Escolha o tipo de adversário Computador:");
 			computador = teclado.nextInt();
 		}
-		
-		if(computador == 1)
-			return new ComputadorAleatorio();
-		else if(computador == 2)
-			return new ComputadorSequencialCrescente();
-		else
-			return new ComputadorSequencialDecrescente();
-		
+
+		return switch (computador) {
+			case 1 -> new ComputadorAleatorio();
+			case 2 -> new ComputadorSequencialCrescente();
+			default -> new ComputadorSequencialDecrescente();
+		};
 	}
 	
 }	
